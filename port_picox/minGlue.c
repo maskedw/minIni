@@ -36,7 +36,7 @@ char* x_iniglue_read(char* dst, size_t size, XFile* fp)
 {
     bool overflow;
     char* result;
-    const XError err = xfs_readline(fp, dst, size - 1, &result, &overflow);
+    const XError err = xfs_gets(fp, dst, size - 1, &result, &overflow);
 
     if ((err != X_ERR_NONE) || !result || overflow)
         return NULL;
